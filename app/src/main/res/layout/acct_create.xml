@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/createUsername"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/newAcctUsername2"
@@ -27,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/createPassword"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/createUsername"
@@ -35,8 +36,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="132dp"
-        android:gravity="left"
-        android:text="Username"
+        android:gravity="start"
+        android:text="@string/username"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createName" />
@@ -51,7 +52,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createName" />
+        app:layout_constraintTop_toBottomOf="@+id/createName"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/createName"
@@ -59,8 +61,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="80dp"
-        android:gravity="left"
-        android:text="Name"
+        android:gravity="start"
+        android:text="@string/name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,8 +73,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="108dp"
-        android:gravity="left"
-        android:text="Password"
+        android:gravity="start"
+        android:text="@string/password"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createUsername" />
