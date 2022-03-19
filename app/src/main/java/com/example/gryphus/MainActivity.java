@@ -2,7 +2,9 @@ package com.example.gryphus;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
@@ -19,6 +24,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+    private static AccountModel account = new AccountModel();
     //string username/password (collection/hashmap)
 
 
@@ -27,7 +33,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    //removed default action bar, use @toolbar as default action bar
+        //removed default action bar, use @toolbar as default action bar
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -36,8 +42,66 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 //        Button ok = findViewById(R.id.bottom_bar);
 //        ok.setOnClickListener();
 
+         Button accountCreation = (Button) findViewById(R.id.createAccount);
+         accountCreation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new SignUpFragment()).commit();
+            }
+        }); //account creation
 
+        Button signUp = findViewById(R.id.signUpConfirm);
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newName = getContentOfEditText(R.id.inputName);
+                String newUsername = getContentOfEditText(R.id.inputUsername);
+                String newPassword = getContentOfEditText(R.id.inputPassword);
+                if (account.setUp(newName, newUsername, newPassword).equals("fail")){
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Account Creation Failed")
+                            .setMessage("Username or Password already exist")
+                            .setNeutralButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sumthin) {
+                                }
+                            })
+                            .show();
+                } else {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Account Creation Success")
+                            .setMessage("Good")
+                            .setNeutralButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sumthin) {
+                                }
+                            })
+                            .show();
+                }
+            }
+        });
 
+        Button login = findViewById(R.id.confirm);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = getContentOfEditText(R.id.editTextUsername);
+                String password = getContentOfEditText(R.id.editTextPassword);
+
+                 boolean validity = account.login(username, password);
+                 if (validity == true) {
+
+                 } else {
+                     new AlertDialog.Builder(MainActivity.this)
+                             .setTitle("Log In Failed")
+                             .setMessage("Username or Password is wrong")
+                             .setNeutralButton("닫기", new DialogInterface.OnClickListener() {
+                                 public void onClick(DialogInterface dlg, int sumthin) {
+                                 }
+                             })
+                             .show();
+                 }
+            }
+        }); // login process
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_bar);
         NavigationBarView.OnItemSelectedListener bottomNavListener = new NavigationBarView.OnItemSelectedListener() {
@@ -69,7 +133,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
 
 
-    // handles clicks on navigation drawer !!!CHANGE "this"
+        // handles clicks on navigation drawer !!!CHANGE "this"
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -109,6 +173,13 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private  String getContentOfEditText(int id){
+        View view = findViewById(id);
+        EditText editText = (EditText) view;
+        String str = editText.getText().toString();
+        return str;
     }
 
     // conditional on `onBackPressed` method to not exit activity if drawer is open. Instead, it will close the drawer
