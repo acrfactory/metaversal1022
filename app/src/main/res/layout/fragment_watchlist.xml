@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light">
+
+    <TextView
+        android:id="@+id/list1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/darker_gray"
+        android:text="Product Name1"
+        android:textSize="34sp" />
+    <TextView
+        android:id="@+id/stock1"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:layout_alignBaseline="@id/list1"
+        android:text="In Stock" />
+
+    <TextView
+        android:id="@+id/list2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list1"
+        android:layout_alignLeft="@id/list1"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/darker_gray"
+        android:text="Product Name2"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/stock2"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/list2"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:text="In Stock" />
+
+    <TextView
+        android:id="@+id/list3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list2"
+        android:layout_alignLeft="@id/list1"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/darker_gray"
+        android:text="Product Name3"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/stock3"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_alignBaseline="@id/list3"
+        android:layout_alignParentRight="true"
+        android:text="In Stock" />
+
+    <TextView
+        android:id="@+id/list4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list3"
+        android:layout_alignLeft="@id/list1"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/darker_gray"
+        android:text="Product Name4"
+        android:textSize="34sp" />
+
+
+    <TextView
+        android:id="@+id/stock4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/list4"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:text="Not In Stock"
+        android:textColor="@android:color/holo_red_dark" />
+    <TextView
+        android:id="@+id/list5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list4"
+        android:layout_alignLeft="@id/list1"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/darker_gray"
+        android:text="Product Name5"
+        android:textSize="34sp" />
+
+
+    <TextView
+        android:id="@+id/stock5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/list5"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:text="Not In Stock"
+        android:textColor="@android:color/holo_red_dark" />
+
+
+
+</RelativeLayout>
