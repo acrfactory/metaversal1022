@@ -1,29 +1,33 @@
 package com.example.gryphus;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.Map;
+import java.util.Objects;
+
 public class LoginFragment extends Fragment {
+
+    public AccountModel account;
+    boolean isValid = false;
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor sharedPreferencesEditor;
 
     @Nullable
     @Override
@@ -34,6 +38,16 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        sharedPreferences = Objects.requireNonNull(getActivity()).getApplicationContext()
+                .getSharedPreferences("accountDB", Context.MODE_PRIVATE);
+
+        sharedPreferencesEditor = sharedPreferences.edit();
+
+        account = new AccountModel();
+
+
+
         Button accountCreation = getView().findViewById(R.id.createAccount);
         accountCreation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,20 +58,44 @@ public class LoginFragment extends Fragment {
         });
 
         Button logIn =  getView().findViewById(R.id.confirm);
-        EditText userInput = getView().findViewById(R.id.inputUsername);
-        EditText password = getView().findViewById(R.id.inputPassword);
+        EditText userInput = getView().findViewById(R.id.editTextUsername);
+        EditText password = getView().findViewById(R.id.editTextPassword);
+
+        if (sharedPreferences != null){
+            Map<String, ?> preferencesMap = sharedPreferences.getAll();
+            if (preferencesMap.size() != 0) {
+                account.loadAccounts(preferencesMap);
+            }
+//            String savedUser = sharedPreferences.getString("LastSavedUsername", "");
+//            String savedPass = sharedPreferences.getString("LastSavedPassword", "");
+
+        }
+
         logIn.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick (View view) {
-            AccountModel accountModel = new AccountModel();
+                String inputUser = userInput.getText().toString();
+                String inputPass = password.getText().toString();
 
-            accountModel.getContentOfEditText();
-            if (accountModel.valid) {
-                Toast.makeText(getActivity().getApplicationContext() , "LOGIN SUCCESS", Toast.LENGTH_SHORT).show();
-            } else {
-                    Toast.makeText(getActivity().getApplicationContext() , "LOGIN FAILED", Toast.LENGTH_SHORT).show()
+                if (inputUser.isEmpty() || inputPass.isEmpty()) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Invalid entry!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    isValid = validationMethod(inputUser, inputPass);
+                    if (!isValid) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Invalid entry v2.0!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        sharedPreferencesEditor.putString("LastSavedUsername", inputUser);
+                        sharedPreferencesEditor.putString("LastSavedPassword", inputPass);
+                        sharedPreferencesEditor.apply();
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "Login successful!", Toast.LENGTH_SHORT).show();
+                        requireActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container,
+                                        new HomeFragment()).commit();
+                    }
+
                 }
 
             }
@@ -65,6 +103,10 @@ public class LoginFragment extends Fragment {
 
 
 
+    }
+
+    private boolean validationMethod(String username, String password) {
+        return account.valid(username, password);
     }
 
 
