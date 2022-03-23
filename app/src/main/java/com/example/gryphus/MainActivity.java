@@ -92,66 +92,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_login);
         }
 
-
-
-
-        ////////////////////////////////////////////////////////
-
-         //account creation
-//
-//        Button signUp = findViewById(R.id.signUpConfirm);
-//        signUp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String newName = getContentOfEditText(R.id.inputName);
-//                String newUsername = getContentOfEditText(R.id.inputUsername);
-//                String newPassword = getContentOfEditText(R.id.inputPassword);
-//                if (account.setUp(newName, newUsername, newPassword).equals("fail")){
-//                    new AlertDialog.Builder(MainActivity.this)
-//                            .setTitle("Account Creation Failed")
-//                            .setMessage("Username or Password already exist")
-//                            .setNeutralButton("닫기", new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dlg, int sumthin) {
-//                                }
-//                            })
-//                            .show();
-//                } else {
-//                    new AlertDialog.Builder(MainActivity.this)
-//                            .setTitle("Account Creation Success")
-//                            .setMessage("Good")
-//                            .setNeutralButton("닫기", new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dlg, int sumthin) {
-//                                }
-//                            })
-//                            .show();
-//                }
-//            }
-//        });
-//
-//        Button login = findViewById(R.id.confirm);
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String username = getContentOfEditText(R.id.editTextUsername);
-//                String password = getContentOfEditText(R.id.editTextPassword);
-//
-//                boolean validity = account.login(username, password);
-//                if (validity) {
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                            new HomeFragment()).commit();
-//
-//                } else {
-//                    new AlertDialog.Builder(MainActivity.this)
-//                            .setTitle("Log In Failed")
-//                            .setMessage("Username or Password is wrong")
-//                            .setNeutralButton("닫기", new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dlg, int sumthin) {
-//                                }
-//                            })
-//                            .show();
-//                }
-//            }
-//        }); // login process
     }
 
 
