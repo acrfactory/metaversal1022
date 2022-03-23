@@ -63,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Create an account"
+        android:onClick="accountCreate"
         android:layout_below="@id/editTextPassword"
         android:layout_centerInParent="true"    />
 
@@ -70,10 +71,9 @@
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:text="Confirm"
         android:layout_below="@id/createAccount"
         android:layout_centerInParent="true"
-       
-        />
+        android:layout_marginBottom="56dp"
+
+        android:text="Confirm" />
 </RelativeLayout>
