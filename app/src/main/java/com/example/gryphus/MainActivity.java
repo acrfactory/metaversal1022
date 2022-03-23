@@ -1,6 +1,7 @@
 package com.example.gryphus;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new HomeFragment()).commit();
+                    new LoginFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_login);
         }
 
