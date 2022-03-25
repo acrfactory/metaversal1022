@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.gryphus.MainActivity"
-    >
+    tools:context="com.example.gryphus.MainActivity">
 
 
     <RelativeLayout
@@ -28,7 +27,8 @@
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottom_bar"/>
+            android:layout_above="@+id/bottom_bar"
+            android:layout_marginTop="?attr/actionBarSize"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_bar"

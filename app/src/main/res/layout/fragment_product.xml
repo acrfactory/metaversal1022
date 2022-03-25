@@ -1,88 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/outerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProductFragment"
-    android:background="@android:color/holo_blue_dark">
+    android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <ImageView
-        android:id="@+id/product1"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="10dp"
-        tools:src="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/product2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toRightOf="@id/product1"
-        tools:src="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/product3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/info1"
-        android:layout_alignLeft="@id/product1"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="10dp"
-        tools:src="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/product4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/info2"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toRightOf="@id/product3"
-        tools:src="@tools:sample/avatars" />
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_baseline_sports_basketball_24"/>
 
     <TextView
-        android:id="@+id/info1"
-        android:layout_width="129dp"
+        android:id="@+id/info"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/product1"
-        android:layout_alignLeft="@id/product1"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/info2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_below="@id/product2"
-        android:layout_alignLeft="@id/product2"/>
-    <TextView
-        android:id="@+id/info3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_below="@id/product3"
-        android:layout_alignLeft="@id/product3"/>
-
-    <TextView
-        android:id="@+id/info4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_below="@id/product4"
-        android:layout_alignLeft="@id/product4"
+        tools:text="item"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_centerInParent="true"
         />
 
 </RelativeLayout>
