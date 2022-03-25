@@ -25,9 +25,6 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
-    private static AccountModel account = new AccountModel();
-    //string username/password (collection/hashmap)
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new WatchlistFragment()).commit();
                         break;
-
                 }
                 return true;
             }
@@ -88,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new LoginFragment()).commit();
+                    new ProductFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_login);
         }
 

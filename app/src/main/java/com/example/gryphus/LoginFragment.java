@@ -66,8 +66,6 @@ public class LoginFragment extends Fragment {
             if (preferencesMap.size() != 0) {
                 account.loadAccounts(preferencesMap);
             }
-//            String savedUser = sharedPreferences.getString("LastSavedUsername", "");
-//            String savedPass = sharedPreferences.getString("LastSavedPassword", "");
 
         }
 
@@ -78,30 +76,24 @@ public class LoginFragment extends Fragment {
                 String inputPass = password.getText().toString();
 
                 if (inputUser.isEmpty() || inputPass.isEmpty()) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Invalid entry!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Invalid entry!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     isValid = validationMethod(inputUser, inputPass);
                     if (!isValid) {
-                        Toast.makeText(getActivity().getApplicationContext(), "Invalid entry v2.0!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Invalid entry v2.0!", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        sharedPreferencesEditor.putString("LastSavedUsername", inputUser);
-                        sharedPreferencesEditor.putString("LastSavedPassword", inputPass);
-                        sharedPreferencesEditor.apply();
-                        Toast.makeText(getActivity().getApplicationContext(),
+                        Toast.makeText(getContext(),
                                 "Login successful!", Toast.LENGTH_SHORT).show();
                         requireActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container,
                                         new HomeFragment()).commit();
                     }
-
                 }
 
             }
         });
-
-
 
     }
 
