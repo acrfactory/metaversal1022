@@ -39,8 +39,8 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        sharedPreferences = Objects.requireNonNull(getActivity()).getApplicationContext()
-                .getSharedPreferences("accountDB", Context.MODE_PRIVATE);
+        sharedPreferences = Objects.requireNonNull(getContext()
+                .getSharedPreferences("accountDB", Context.MODE_PRIVATE));
 
         sharedPreferencesEditor = sharedPreferences.edit();
 
@@ -53,7 +53,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new SignUpFragment()).commit();
+                        new SignUpFragment()).addToBackStack(null).commit();
             }
         });
 
@@ -88,7 +88,7 @@ public class LoginFragment extends Fragment {
                                 "Login successful!", Toast.LENGTH_SHORT).show();
                         requireActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container,
-                                        new HomeFragment()).commit();
+                                        new HomeFragment()).addToBackStack(null).commit();
                     }
                 }
 
@@ -100,6 +100,5 @@ public class LoginFragment extends Fragment {
     private boolean validationMethod(String username, String password) {
         return account.valid(username, password);
     }
-
 
 }
