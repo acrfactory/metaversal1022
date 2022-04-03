@@ -9,7 +9,18 @@ public class Product {
     private int quantity;
     private double price;
     private boolean inStock;
+    private boolean favourite;
     private Drawable icon;
+
+
+    public boolean getFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
+    }
+
 
     public Drawable getIcon() {
         return icon;
