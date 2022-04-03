@@ -77,7 +77,7 @@ public class SignUpFragment extends Fragment {
                                 "Registration successful!", Toast.LENGTH_SHORT).show();
                         requireActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container,
-                                new LoginFragment()).commit();
+                                new LoginFragment()).addToBackStack(null).commit();
 
 
                     }
@@ -94,4 +94,6 @@ public class SignUpFragment extends Fragment {
         }
         return true;
     }
+
+
 }

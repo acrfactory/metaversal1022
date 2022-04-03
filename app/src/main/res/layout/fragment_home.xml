@@ -27,10 +27,11 @@
         android:text="How to Use \n blahblah" />
 
     <Button
+        android:id="@+id/homeToProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Products"/>
+        android:text="Products" />
 
 
 </RelativeLayout>

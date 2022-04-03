@@ -1,10 +1,15 @@
 package com.example.gryphus;
 
+import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AccountModel {
-    HashMap<String, String> accountMap= new HashMap<>();
+    public HashMap<String, String> accountMap= new HashMap<>();
+
+    public HashMap<String, ArrayList> favMap = new HashMap<>();
 
     public boolean valid = false;//check whether or not username, or password is valid.
 
@@ -32,7 +37,19 @@ public class AccountModel {
         }
     }
 
+    public void addFav(String username, ArrayList<Product> product){
+        if (!(favMap.containsKey(username))) {
+           favMap.put(username, product);
+        } else if (favMap.containsKey(username)) {
+            favMap.get(username).add(product);
+        }
+    }
 
+    public HashMap<String, ArrayList> getFavMap() {
+        return favMap;
+    }
 
-
+    public HashMap<String, String> getAccountMap() {
+        return accountMap;
+    }
 }
