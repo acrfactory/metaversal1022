@@ -18,7 +18,18 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container,false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        Button products = getView().findViewById(R.id.homeToProduct);
 
-
+        products.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new ProductFragment()).addToBackStack(null).commit();
+            }
+        });
+    }
 }

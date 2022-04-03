@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AccountModel {
-    HashMap<String, String> accountMap= new HashMap<>();
+    public HashMap<String, String> accountMap= new HashMap<>();
 
     public boolean valid = false;//check whether or not username, or password is valid.
 
@@ -32,7 +32,7 @@ public class AccountModel {
         }
     }
 
-
-
-
+    public HashMap<String, String> getAccountMap() {
+        return accountMap;
+    }
 }

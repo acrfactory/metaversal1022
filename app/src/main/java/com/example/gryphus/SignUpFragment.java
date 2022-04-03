@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
@@ -77,7 +78,7 @@ public class SignUpFragment extends Fragment {
                                 "Registration successful!", Toast.LENGTH_SHORT).show();
                         requireActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container,
-                                new LoginFragment()).commit();
+                                new LoginFragment()).addToBackStack(null).commit();
 
 
                     }
@@ -94,4 +95,6 @@ public class SignUpFragment extends Fragment {
         }
         return true;
     }
+
+
 }
