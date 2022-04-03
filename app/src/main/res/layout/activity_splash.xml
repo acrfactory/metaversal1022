@@ -9,10 +9,6 @@
     android:id="@+id/mySplashLayout">
 
 
-
-
-
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
         android:layout_width="match_parent"
@@ -20,8 +16,18 @@
         android:scaleType="centerCrop"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/newsplashbg"
-        tools:ignore="ImageContrastCheck" />
+        app:lottie_rawRes="@raw/newsplashbg" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/lottieText"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:gravity="center_horizontal"
+        android:text="Welcome."
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/bebasneue_reg"/>
 
 
 

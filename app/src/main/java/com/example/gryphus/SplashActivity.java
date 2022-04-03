@@ -12,11 +12,12 @@ import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class SplashActivity extends AppCompatActivity {
 
-    private ImageView splashImage;
+    private TextView splashText;
 
 
     @Override
@@ -27,8 +28,8 @@ public class SplashActivity extends AppCompatActivity {
 
 
 
-        splashImage = findViewById(R.id.lottie);
-        splashImage.animate().translationY(-1600).setDuration(1000).setStartDelay(4000);
+        splashText = findViewById(R.id.lottieText);
+        splashText.animate().translationY(-1600).setDuration(700).setStartDelay(4500);
 
 
         new Handler()
@@ -39,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
                         startActivity(i);
 
                     }
-                }, 4000);
+                }, 5000);
     }
 
 
