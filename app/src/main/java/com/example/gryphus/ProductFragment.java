@@ -19,8 +19,8 @@ import java.util.Random;
 
 public class ProductFragment extends Fragment {
 
-    private static ArrayList<Product> productList;
-    private static RecyclerView recyclerView;
+    public static ArrayList<Product> productList;
+    private RecyclerView recyclerView;
     private Random rand = new Random();
 
 

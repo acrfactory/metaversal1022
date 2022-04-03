@@ -37,7 +37,7 @@ public class SearchFragment extends Fragment {
     }
 
     private void setAdapter() {
-        recyclerAdapterFilter adapter = new recyclerAdapterFilter(filterList);
+        FilterAdapter adapter = new FilterAdapter(filterList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
