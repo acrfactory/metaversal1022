@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class ProductFragment extends Fragment {
 
-    private ArrayList<Product> productList;
+    public static ArrayList<Product> productList;
     private RecyclerView recyclerView;
 
 

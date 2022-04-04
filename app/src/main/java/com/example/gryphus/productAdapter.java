@@ -75,10 +75,8 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.myViewHo
 
 
         SharedPreferences pref = holder.favButton.getContext().getSharedPreferences("favDB", Context.MODE_PRIVATE);
-
         SharedPreferences userPref = holder.favButton.getContext().getSharedPreferences("accountDB", Context.MODE_PRIVATE);
         String username = userPref.getString("username","");
-        Set<String> productSet = new HashSet<>();
 
 
         holder.favButton.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +86,7 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.myViewHo
                 if (holder.likeState == 0) {
                     Toast.makeText(holder.favButton.getContext(), "Added to Watchlist", Toast.LENGTH_SHORT).show();
                     holder.likeState = 1;
-                    pref.edit().putBoolean(String.valueOf(holder.getAdapterPosition()), true).apply();
+                    pref.edit().putBoolean(String.valueOf(currentProduct.getItemID()), true).apply();
 
                     Set<String> currentSet = pref.getStringSet(username,new HashSet<>());
                     currentSet.add(String.valueOf(currentProduct.getItemID()));
@@ -97,7 +95,7 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.myViewHo
                 } else if (holder.likeState == 1) {
                     Toast.makeText(holder.favButton.getContext(), "Removed from Watchlist", Toast.LENGTH_SHORT).show();
                     holder.likeState = 0;
-                    pref.edit().putBoolean(String.valueOf(holder.getAdapterPosition()),false).apply();
+                    pref.edit().putBoolean(String.valueOf(currentProduct.getItemID()),false).apply();
 
                     Set<String> currentSet = pref.getStringSet(username,new HashSet<>());
                     currentSet.remove(String.valueOf(currentProduct.getItemID()));
