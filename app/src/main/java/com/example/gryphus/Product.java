@@ -30,9 +30,10 @@ public class Product {
         this.icon = icon;
     }
 
-    public Product(String name, Drawable icon) {
+    public Product(String name, Drawable icon, int id) {
         this.name = name;
         this.icon = icon;
+        this.itemID = id;
     }
 
     public Product(String name, int itemID, int quantity, double price){
@@ -79,6 +80,8 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+
 
     public void setName(String name) {
         this.name = name;

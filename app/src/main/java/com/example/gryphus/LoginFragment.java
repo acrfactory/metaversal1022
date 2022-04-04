@@ -18,6 +18,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
@@ -26,7 +31,11 @@ public class LoginFragment extends Fragment {
     public AccountModel account;
     boolean isValid = false;
 
+    public ArrayList<Product> favsList;
+
+
     SharedPreferences sharedPreferences;
+    SharedPreferences favPref;
     SharedPreferences.Editor sharedPreferencesEditor;
 
     @Nullable
@@ -39,8 +48,8 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        sharedPreferences = Objects.requireNonNull(getContext()
-                .getSharedPreferences("accountDB", Context.MODE_PRIVATE));
+        sharedPreferences = Objects.requireNonNull(getContext())
+                .getSharedPreferences("accountDB", Context.MODE_PRIVATE);
 
         sharedPreferencesEditor = sharedPreferences.edit();
 
@@ -48,7 +57,7 @@ public class LoginFragment extends Fragment {
 
 
 
-        Button accountCreation = getView().findViewById(R.id.createAccount);
+        Button accountCreation = Objects.requireNonNull(getView()).findViewById(R.id.createAccount);
         accountCreation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,11 +93,20 @@ public class LoginFragment extends Fragment {
                         Toast.makeText(getContext(), "Invalid entry v2.0!", Toast.LENGTH_SHORT).show();
                     }
                     else {
+                        account.setUsername(inputUser);
+
+
+                        sharedPreferences.edit().putString("username", inputUser).apply();
+
+
                         Toast.makeText(getContext(),
                                 "Login successful!", Toast.LENGTH_SHORT).show();
+
                         requireActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container,
                                         new HomeFragment()).addToBackStack(null).commit();
+
+
                     }
                 }
 
@@ -101,4 +119,17 @@ public class LoginFragment extends Fragment {
         return account.valid(username, password);
     }
 
-}
+//    private void loadFavs() {
+//        favPref = getContext().getSharedPreferences("favDB", Context.MODE_PRIVATE);
+//        Gson gson = new Gson();
+//        String json = favPref.getString(account.getUsername(), null);
+//        Type type = new TypeToken<ArrayList<Product>>() {}.getType();
+//        favsList = gson.fromJson(json, type);
+//
+//        if (favsList == null) {
+//            favsList = new ArrayList<Product>();
+//        }
+    }
+
+
+

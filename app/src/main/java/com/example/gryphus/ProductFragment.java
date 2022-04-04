@@ -50,21 +50,21 @@ public class ProductFragment extends Fragment {
     }
 
     private void setProductInfo() {
-        productList.add(new Product("Test Product 1", getContext().getDrawable(R.drawable.ic_settings)));
-        productList.add(new Product("Test Product 2", getContext().getDrawable(R.drawable.ic_settings)));
-        productList.add(new Product("Test Product 3", getContext().getDrawable(R.drawable.ic_settings)));
-        productList.add(new Product("Test Product 4", getContext().getDrawable(R.drawable.ic_settings)));
-        productList.add(new Product("Test Product 5", getContext().getDrawable(R.drawable.ic_settings)));
-        productList.add(new Product("Test Product 6", getContext().getDrawable(R.drawable.ic_aboutus)));
-        productList.add(new Product("Test Product 7", getContext().getDrawable(R.drawable.ic_home)));
-        productList.add(new Product("Test Product 8", getContext().getDrawable(R.drawable.ic_search)));
-        productList.add(new Product("Test Product 9", getContext().getDrawable(R.drawable.ic_login)));
-        productList.add(new Product("Test Product 10",getContext().getDrawable(R.drawable.ic_settings) ));
-        productList.add(new Product("Test Product 11",getContext().getDrawable(R.drawable.ic_settings) ));
-        productList.add(new Product("Test Product 12",getContext().getDrawable(R.drawable.ic_settings) ));
-        productList.add(new Product("Test Product 13",getContext().getDrawable(R.drawable.ic_settings) ));
-        productList.add(new Product("Test Product 14",getContext().getDrawable(R.drawable.ic_settings) ));
-        productList.add(new Product("Test Product 15",getContext().getDrawable(R.drawable.ic_settings) ));
-        productList.add(new Product("Test Product 16",getContext().getDrawable(R.drawable.ic_settings) ));
+        productList.add(new Product("Test Product 1", getContext().getDrawable(R.drawable.ic_settings), 1));
+        productList.add(new Product("Test Product 2", getContext().getDrawable(R.drawable.ic_settings),2));
+        productList.add(new Product("Test Product 3", getContext().getDrawable(R.drawable.ic_settings),3));
+        productList.add(new Product("Test Product 4", getContext().getDrawable(R.drawable.ic_settings),4));
+        productList.add(new Product("Test Product 5", getContext().getDrawable(R.drawable.ic_settings),5));
+        productList.add(new Product("Test Product 6", getContext().getDrawable(R.drawable.ic_aboutus),6));
+        productList.add(new Product("Test Product 7", getContext().getDrawable(R.drawable.ic_home),7));
+        productList.add(new Product("Test Product 8", getContext().getDrawable(R.drawable.ic_search),8));
+        productList.add(new Product("Test Product 9", getContext().getDrawable(R.drawable.ic_login),9));
+        productList.add(new Product("Test Product 10",getContext().getDrawable(R.drawable.ic_settings) ,10));
+        productList.add(new Product("Test Product 11",getContext().getDrawable(R.drawable.ic_settings) ,11));
+        productList.add(new Product("Test Product 12",getContext().getDrawable(R.drawable.ic_settings) ,12));
+        productList.add(new Product("Test Product 13",getContext().getDrawable(R.drawable.ic_settings) ,13));
+        productList.add(new Product("Test Product 14",getContext().getDrawable(R.drawable.ic_settings) ,14));
+        productList.add(new Product("Test Product 15",getContext().getDrawable(R.drawable.ic_settings) ,15));
+        productList.add(new Product("Test Product 16",getContext().getDrawable(R.drawable.ic_settings) ,16));
     }
 }
