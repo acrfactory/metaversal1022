@@ -7,7 +7,7 @@ public class Product {
     private int itemID;
     private String name;
     private int quantity;
-    private double price;
+    private int price;
     private boolean inStock;
     private boolean favourite;
     private Drawable icon;
@@ -35,7 +35,7 @@ public class Product {
         this.icon = icon;
     }
 
-    public Product(String name, int itemID, int quantity, double price){
+    public Product(String name, int itemID, int quantity, int price){
         this.name = name;
         this.quantity = quantity;
         this.itemID = itemID;
@@ -56,11 +56,11 @@ public class Product {
         return name;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

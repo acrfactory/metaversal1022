@@ -1,5 +1,7 @@
 package com.example.gryphus;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,13 +17,24 @@ import android.view.ViewGroup;
 
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class ProductFragment extends Fragment {
 
-    public static ArrayList<Product> productList;
+    private ArrayList<Product> productList;
     private RecyclerView recyclerView;
     private Random rand = new Random();
+
+    SharedPreferences sharedPrice;
+    SharedPreferences.Editor sharedPriceEditor;
+
+
+    SharedPreferences sharedLocation;
+    SharedPreferences.Editor sharedLocationEditor;
+
+    SharedPreferences sharedManufac;
+    SharedPreferences.Editor sharedManufacEditor;
 
 
     @Override
@@ -32,18 +45,52 @@ public class ProductFragment extends Fragment {
 
     }
 
-
+    @Nullable
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        
+        sharedPrice = Objects.requireNonNull(getActivity()).getApplicationContext()
+                .getSharedPreferences("productPrice",Context.MODE_PRIVATE);
+
+        sharedPriceEditor = sharedPrice.edit();
+        
+        sharedLocation = Objects.requireNonNull(getActivity()).getApplicationContext()
+                .getSharedPreferences("productLocation",Context.MODE_PRIVATE);
+
+        sharedLocationEditor = sharedLocation.edit();
+        
+        sharedManufac = Objects.requireNonNull(getActivity()).getApplicationContext()
+                .getSharedPreferences("productManufacturer",Context.MODE_PRIVATE);
+
+        sharedManufacEditor = sharedManufac.edit();
+        
+        
         recyclerView = getView().findViewById(R.id.recycler);
         productList = new ArrayList<>();
-        setProductInfo();
+        if (productList.size() == 0){
+            setProductInfo();
+            setProductID();
+            setProductLoc();
+            setProductManu();
+            setProductPrice();
+    } else {
+
+        }
+
+        for (Product products:
+             productList) {
+            sharedPriceEditor.putInt(products.getName(),products.getPrice());
+        }
+        
+        
         setAdapter();
     }
 
+    
+
     private void setAdapter() {
-        recyclerAdapter adapter = new recyclerAdapter(productList);
+        productAdapter adapter = new productAdapter(productList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -67,6 +114,7 @@ public class ProductFragment extends Fragment {
         productList.add(new Product("Test Product 14",getContext().getDrawable(R.drawable.ic_settings) ));
         productList.add(new Product("Test Product 15",getContext().getDrawable(R.drawable.ic_settings) ));
         productList.add(new Product("Test Product 16",getContext().getDrawable(R.drawable.ic_settings) ));
+        
     }
 
     private void setProductID() {
@@ -78,6 +126,41 @@ public class ProductFragment extends Fragment {
                 id *= 10;
             }
             products.setItemID(id);
+        }
+    }
+    
+    private void setProductLoc() {
+        for (int i = 0; i < 8; i++) {
+            sharedLocationEditor.putString(productList.get(i).getName(),"Ontario");
+        }
+        for (int i = 8; i < 16; i++) {
+            sharedLocationEditor.putString(productList.get(i).getName(),"BC");
+        }
+    }
+
+    private void setProductManu() {
+        for (int i = 0; i <4; i++) {
+            sharedManufacEditor.putString(productList.get(i).getName(),"CompanyA");
+        }
+        for (int i = 4; i < 8; i++) {
+            sharedManufacEditor.putString(productList.get(i).getName(),"CompanyB");
+        }
+        for (int i = 8; i < 12; i++) {
+            sharedManufacEditor.putString(productList.get(i).getName(),"CompanyC");
+        }
+        for (int i = 12; i < 16; i++) {
+            sharedManufacEditor.putString(productList.get(i).getName(),"CompanyD");
+        }
+
+
+    }
+
+    private void setProductPrice() {
+        for (int i = 0; i < 8 ; i++) {
+            sharedPriceEditor.putInt(productList.get(i).getName(), 500);
+        }
+        for (int i = 8; i < 16 ; i++) {
+            sharedPriceEditor.putInt(productList.get(i).getName(), 2000);
         }
     }
 }

@@ -39,8 +39,8 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        sharedPreferences = Objects.requireNonNull(getContext()
-                .getSharedPreferences("accountDB", Context.MODE_PRIVATE));
+        sharedPreferences = Objects.requireNonNull(getActivity()).getApplicationContext()
+                .getSharedPreferences("accountDB", Context.MODE_PRIVATE);
 
         sharedPreferencesEditor = sharedPreferences.edit();
 

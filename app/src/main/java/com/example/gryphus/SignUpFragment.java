@@ -41,7 +41,7 @@ public class SignUpFragment extends Fragment {
         account = new AccountModel();
 
         sharedPreferences = Objects.requireNonNull(getActivity()).getApplicationContext()
-                .getSharedPreferences("accountDB", Context.MODE_PRIVATE);
+                .getSharedPreferences("acountDB", Context.MODE_PRIVATE);
 
         sharedPreferencesEditor = sharedPreferences.edit();
 
