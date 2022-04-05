@@ -30,10 +30,11 @@ public class Product {
         this.icon = icon;
     }
 
-    public Product(String name, Drawable icon, int id) {
+    public Product(String name, Drawable icon, int id, boolean inStock) {
         this.name = name;
         this.icon = icon;
         this.itemID = id;
+        this.inStock = inStock;
     }
 
     public Product(String name, int itemID, int quantity, double price){
