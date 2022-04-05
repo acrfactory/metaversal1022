@@ -23,15 +23,15 @@
         tools:text="item" />
 
     <ImageView
-        android:clickable="true"
-        android:focusable="true"
         android:id="@+id/favButton"
-        android:layout_centerInParent="true"
-        android:layout_alignParentEnd="true"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Like"
-        android:src="@drawable/ic_baseline_favorite_border_24"/>
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_favorite_border_24"
+        android:text="Like" />
 
 
 </RelativeLayout>

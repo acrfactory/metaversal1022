@@ -1,40 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/holo_green_light">
     android:theme="@style/Theme.Gryphus">
 
-    <TextView
-        android:id="@+id/list1"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
-        android:background="@android:color/darker_gray"
-        android:text="Product Name1"
-        android:textSize="34sp" />
-
-    <TextView
-        android:id="@+id/stock1"
-        android:textColor="@android:color/holo_green_dark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="50dp"
-        android:layout_alignBaseline="@id/list1"
-        android:text="In Stock" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/list1"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="50dp"
-        android:onClick="delete"
-        android:text="Del" />
+        android:layout_height="wrap_content">
 
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/watchlistImage1"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_baseline_sports_basketball_24"/>
+
+        <TextView
+            android:id="@+id/info1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            tools:text="item" />
+
+        <TextView
+            android:id="@+id/favButton1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:text="inStock" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/watchlistImage2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_baseline_sports_basketball_24"/>
+
+        <TextView
+            android:id="@+id/info2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            tools:text="item" />
+
+        <TextView
+            android:id="@+id/favButton2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:text="inStock" />
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/watchlistImage3"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_baseline_sports_basketball_24"/>
+
+        <TextView
+            android:id="@+id/info3"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            tools:text="item" />
+
+        <TextView
+            android:id="@+id/favButton3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:text="inStock" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
