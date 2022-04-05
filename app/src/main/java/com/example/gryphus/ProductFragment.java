@@ -43,7 +43,7 @@ public class ProductFragment extends Fragment {
     }
 
     private void setAdapter() {
-        recyclerAdapter adapter = new recyclerAdapter(productList);
+        productAdapter adapter = new productAdapter(productList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
