@@ -15,12 +15,13 @@ import android.view.ViewGroup;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ProductFragment extends Fragment {
 
     public static ArrayList<Product> productList;
     private RecyclerView recyclerView;
-
+    private Random rand = new Random();
 
 
     @Override
@@ -28,6 +29,7 @@ public class ProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_productrecycler, container, false);
+
     }
 
 
@@ -38,11 +40,10 @@ public class ProductFragment extends Fragment {
         productList = new ArrayList<>();
         setProductInfo();
         setAdapter();
-
     }
 
     private void setAdapter() {
-        productAdapter adapter = new productAdapter(productList);
+        recyclerAdapter adapter = new recyclerAdapter(productList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -66,5 +67,17 @@ public class ProductFragment extends Fragment {
         productList.add(new Product("Test Product 14",getContext().getDrawable(R.drawable.ic_settings) ,14, true));
         productList.add(new Product("Test Product 15",getContext().getDrawable(R.drawable.ic_settings) ,15, true));
         productList.add(new Product("Test Product 16",getContext().getDrawable(R.drawable.ic_settings) ,16, true));
+    }
+
+    private void setProductID() {
+        for (Product products:
+             productList) {
+            int id = 0;
+            for (int i = 0; i < 6; i++) {
+                id += rand.nextInt(8)+1;
+                id *= 10;
+            }
+            products.setItemID(id);
+        }
     }
 }

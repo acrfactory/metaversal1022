@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/holo_green_light">
+    android:theme="@style/Theme.Gryphus">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -101,7 +103,5 @@
 
 
     </RelativeLayout>
-
-
 
 </LinearLayout>
